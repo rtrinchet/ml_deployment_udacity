@@ -31,6 +31,12 @@ jobs:
       run: |
         flake8 . --ignore=E501,W503
 
+    - name: Print current directory
+      run: |
+        pwd
+    - name: List directory contents
+      run: |
+        ls
     - name: Run pytest
       run: |
         pytest ml_deployment_udacity/solution/test_ml_model.py
