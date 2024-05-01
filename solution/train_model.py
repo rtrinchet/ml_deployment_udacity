@@ -32,12 +32,14 @@ def get_train_test():
 
     print('------->', os.listdir())
     # Add code to load in the data.
-    try:
-        data = pd.read_csv("data/census_clean.csv")
-    except Exception as e:
-        print(e)
-        print('Github actions workflow!!')
-        data = pd.read_csv("solution/data/census_clean.csv")
+    data = pd.read_csv("data/census_clean.csv")
+    #
+    # try:
+    #     data = pd.read_csv("data/census_clean.csv")
+    # except Exception as e:
+    #     print(e)
+    #     print('Github actions workflow!!')
+    #     data = pd.read_csv("solution/data/census_clean.csv")
 
     # Optional enhancement, use K-fold cross validation instead of a train-test split.
     train, test = train_test_split(data, test_size=0.20)
