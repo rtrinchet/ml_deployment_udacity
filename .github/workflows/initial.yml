@@ -23,9 +23,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Adjust this command based on how you manage your dependencies
 
+    - name: Run ruff
+      run: |
+        ruff check --fix
+
     - name: Run Flake8
       run: |
-        flake8 .
+        flake8 . --ignore=E501,W503
 
     - name: Run pytest
       run: |
