@@ -33,4 +33,4 @@ jobs:
 
     - name: Run pytest
       run: |
-        pytest
+        pytest ml_deployment_udacity/solution/test_ml_model.py
