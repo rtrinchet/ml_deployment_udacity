@@ -26,6 +26,8 @@ def get_categorical_indices(df, categorical_columns):
 
 
 def get_train_test():
+    import os
+    print('------->', os.getcwd())
     # Add code to load in the data.
     data = pd.read_csv("data/census_clean.csv")
     # Optional enhancement, use K-fold cross validation instead of a train-test split.
