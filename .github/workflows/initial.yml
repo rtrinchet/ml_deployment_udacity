@@ -33,4 +33,4 @@ jobs:
 
     - name: Run pytest
       run: |
-        python -m pytest test_ml_model.py
+        python -m pytest solution/test_ml_model.py
