@@ -1,7 +1,7 @@
 # Example unit tests
 import pytest
 from fastapi.testclient import TestClient
-from ml_deployment.ml_deployment_udacity.solution.main import app
+from main import app
 
 
 @pytest.fixture
