@@ -27,8 +27,8 @@ def get_categorical_indices(df, categorical_columns):
 
 def get_train_test():
     import os
-    print('------->', os.chdir('solution'))
-    print('------->', os.listdir())
+    # print('------->', os.chdir('solution'))
+    # print('------->', os.listdir())
     # Add code to load in the data.
     try:
         data = pd.read_csv("data/census_clean.csv")
