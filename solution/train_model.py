@@ -32,7 +32,8 @@ def get_train_test():
     # Add code to load in the data.
     try:
         data = pd.read_csv("data/census_clean.csv")
-    except:
+    except Exception as e:
+        print(e)
         print('Github actions workflow!!')
         data = pd.read_csv("solution/data/census_clean.csv")
 
