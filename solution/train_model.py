@@ -7,7 +7,7 @@ import pickle
 from solution.ml.data import process_data
 from solution.ml.model import train_model
 from solution.ml.performance import performance_on_slices
-
+data_path = "solution/data/census_clean.csv"
 cat_features = [
     "workclass",
     "education",
@@ -32,7 +32,7 @@ def get_train_test():
 
     print('------->', os.listdir())
     # Add code to load in the data.
-    data = pd.read_csv("data/census_clean.csv")
+    data = pd.read_csv(data_path)
     #
     # try:
     #     data = pd.read_csv("data/census_clean.csv")
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     model, X_train, y_train, X_test, y_test, encoder = main()
 
     categorical_column_dict = get_categorical_indices(
-        pd.read_csv("data/census_clean.csv"), cat_features
+        pd.read_csv(data_path), cat_features
     )
     categorical_column_indices = categorical_column_dict["idx"]
     performance_results = performance_on_slices(
