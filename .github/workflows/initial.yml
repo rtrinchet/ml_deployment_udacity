@@ -22,7 +22,8 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Adjust this command based on how you manage your dependencies
-
+    - name: Install requirements
+      run: pip install -e .
     - name: Run ruff
       run: |
         ruff check --fix
@@ -33,4 +34,5 @@ jobs:
 
     - name: Run pytest
       run: |
-        python -m pytest solution/test_ml_model.py
+        pytest -s solution/test_ml_model.py
+#        python -m pytest solution/test_ml_model.py
