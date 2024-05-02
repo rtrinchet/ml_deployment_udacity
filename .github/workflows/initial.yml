@@ -26,7 +26,9 @@ jobs:
       run: |
         ls
         pwd
-        cat solution/data/census_clean.csv
+        ls solution/
+        ls solution/data/
+
         pip install -e .
     - name: Run ruff
       run: |
