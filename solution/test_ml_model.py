@@ -1,7 +1,6 @@
 import pytest
-from ml.model import compute_model_metrics
+from solution.ml.model import compute_model_metrics
 from train_model import main
-
 
 @pytest.fixture
 def create_model_and_data():
