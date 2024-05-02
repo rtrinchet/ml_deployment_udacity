@@ -22,14 +22,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Adjust this command based on how you manage your dependencies
-    - name: Install requirements
-      run: |
-        ls
-        pwd
-        ls solution/
-        ls solution/data/
-
-        pip install -e .
+#    - name: Install requirements
+#      run: |
+#        pip install -e .
     - name: Run ruff
       run: |
         ruff check --fix
