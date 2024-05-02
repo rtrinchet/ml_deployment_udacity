@@ -4,9 +4,9 @@ from sklearn.model_selection import train_test_split
 import pickle
 
 # Add the necessary imports for the starter code.
-from ml.data import process_data
-from ml.model import train_model
-from ml.performance import performance_on_slices
+from solution.ml.data import process_data
+from solution.ml.model import train_model
+from solution.ml.performance import performance_on_slices
 
 cat_features = [
     "workclass",
