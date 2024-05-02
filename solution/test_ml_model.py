@@ -2,6 +2,7 @@ import pytest
 from solution.ml.model import compute_model_metrics
 from train_model import main
 
+
 @pytest.fixture
 def create_model_and_data():
     model, X_train, y_train, X_test, y_test, _ = main()
