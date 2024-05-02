@@ -1,6 +1,6 @@
 import pytest
 from solution.ml.model import compute_model_metrics
-from train_model import main
+from solution.train_model import main
 
 
 @pytest.fixture
