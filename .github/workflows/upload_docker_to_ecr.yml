@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-    - name: Upload container to AWS
+    - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4.0.2
       with:
         role-to-assume: arn:aws:iam::230904673089:role/GitHubActionRole
         role-session-name: nps-container-deploy-dev
         aws-region: us-east-1
+
+    - name: Upload container to AWS
       run: |
         sh upload_container.sh
