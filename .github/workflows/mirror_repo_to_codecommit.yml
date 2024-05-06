@@ -1,7 +1,11 @@
 
 name: Mirror GitHub To CodeCommit
 
-on: [push]
+on:
+  workflow_run:
+    workflows: [ "pytest and flake8" ]
+    types:
+      - completed
 
 jobs:
   mirror_to_codecommit:
@@ -20,29 +24,3 @@ jobs:
           target_repo_url: ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/test_ricard
           ssh_private_key: ${{ secrets.CODECOMMIT_SSH_PRIVATE_KEY }}
           ssh_username: ${{ secrets.CODECOMMIT_SSH_PRIVATE_KEY_ID }}
-
-#name: Upload container to ECR
-#
-#on:
-#  push:
-#    branches:
-#      - master
-#
-#permissions:
-#      id-token: write   # This is required for requesting the JWT
-#      contents: read
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#    - name: Configure AWS Credentials
-#      uses: aws-actions/configure-aws-credentials@v4.0.2
-#      with:
-#        role-to-assume: arn:aws:iam::230904673089:role/GitHubActionRole
-#        role-session-name: test-dev
-#        aws-region: us-east-1
-#
-#    - name: Upload container to AWS
-#      run: |
-#        sh upload_container.sh
