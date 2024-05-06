@@ -24,6 +24,7 @@ phases:
             ### Publish the docker image to ECR
             - echo Pushing the Docker image...
             - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$DOCKER_IMAGE_REPO_NAME:$DOCKER_IMAGE_TAG
+            - printf '[{"name":"Hello_World","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$DOCKER_IMAGE_REPO_NAME:$DOCKER_IMAGE_TAG > testTaskDefinition.json
 
 artifacts:
   files: testTaskDefinition.json
