@@ -22,7 +22,7 @@ phases:
             ### Publish the docker image to ECR
             - echo Pushing the Docker image...
             - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ECR_REPO_NAME
-            - printf '[{"name":"test","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ECR_REPO_NAME > testTaskDefinition.json
-
-artifacts:
-  files: testTaskDefinition.json
+            - echo updating lambda function with latest container image
+            - aws lambda update-function-code \
+              --function-name demo_lambda_function \
+              --image-uri $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ECR_REPO_NAME:latest
