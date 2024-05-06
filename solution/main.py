@@ -6,7 +6,6 @@ import pickle
 from solution.train_model import process_data
 from mangum import Mangum
 
-
 with open("model.pkl", "rb") as input_file:
     model = pickle.load(input_file)
 
@@ -36,15 +35,35 @@ class InputData(BaseModel):
     education: str
     education_num: int = Field(alias="education-num")
     marital_status: str = Field(alias="marital-status")
-    occupation: str
-    relationship: str
-    race: str
-    sex: str
+    occupation: str = Field(examples=["Exec-managerial"])
+    relationship: str = Field(examples=["Husband"])
+    race: str = Field(examples=["Black"])
+    sex: str = Field(examples=["Male"])
     capital_gain: int = Field(alias="capital-gain")
     capital_loss: int = Field(alias="capital-loss")
     hours_per_week: int = Field(alias="hours-per-week")
     native_country: str = Field(alias="native-country")
-
+    class Config:
+        schema_extra = {
+            "example": [
+                {
+                    "age": 37,
+                    "workclass": "Private",
+                    "fnlwgt": 280464,
+                    "education": "Some-college",
+                    "education-num": 10,
+                    "marital-status": "Married-civ-spouse",
+                    "occupation": "Exec-managerial",
+                    "relationship": "Husband",
+                    "race": "Black",
+                    "sex": "Male",
+                    "capital-gain": 0,
+                    "capital-loss": 0,
+                    "hours-per-week": 80,
+                    "native-country": "United-States"
+                }
+            ]
+        }
 
 @app.get("/")
 async def welcome():
