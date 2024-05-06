@@ -5,8 +5,9 @@ import pickle
 
 # Add the necessary imports for the starter code.
 from solution.ml.data import process_data
-from solution.ml.model import train_model
+from solution.ml.model import train_model, compute_model_metrics
 from solution.ml.performance import performance_on_slices
+
 data_path = "solution/data/census_clean.csv"
 cat_features = [
     "workclass",
@@ -82,6 +83,10 @@ if __name__ == "__main__":
     categorical_column_dict = get_categorical_indices(
         pd.read_csv(data_path), cat_features
     )
+
+    y_pred = model.predict(X_test)
+    precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
+    print(precision, recall, fbeta)
     categorical_column_indices = categorical_column_dict["idx"]
     performance_results = performance_on_slices(
         model, X_test, y_test, categorical_column_dict
