@@ -1,4 +1,3 @@
-
 import requests
 
 # The API endpoint
@@ -11,26 +10,25 @@ response = requests.get(url)
 response_json = response.json()
 print(response_json)
 
-
 # Define new data to create
 new_data = {
-"age": 37,
-"workclass": "Private",
-"fnlwgt": 280464,
-"education": "Some-college",
-"education-num": 10,
-"marital-status": "Married-civ-spouse",
-"occupation": "Exec-managerial",
-"relationship": "Husband",
-"race": "Black",
-"sex": "Male",
-"capital-gain": 0,
-"capital-loss": 0,
-"hours-per-week": 80,
-"native-country": "United-States"
+    "age": 37,
+    "workclass": "Private",
+    "fnlwgt": 280464,
+    "education": "Some-college",
+    "education-num": 10,
+    "marital-status": "Married-civ-spouse",
+    "occupation": "Exec-managerial",
+    "relationship": "Husband",
+    "race": "Black",
+    "sex": "Male",
+    "capital-gain": 0,
+    "capital-loss": 0,
+    "hours-per-week": 80,
+    "native-country": "United-States"
 }
 
-predict_url = url+"/predict"
+predict_url = url + "/predict"
 # A POST request to the API
 post_response = requests.post(predict_url, json=new_data)
 

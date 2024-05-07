@@ -43,6 +43,7 @@ class InputData(BaseModel):
     capital_loss: int = Field(alias="capital-loss")
     hours_per_week: int = Field(alias="hours-per-week")
     native_country: str = Field(alias="native-country")
+
     class Config:
         schema_extra = {
             "example": [
@@ -64,6 +65,7 @@ class InputData(BaseModel):
                 }
             ]
         }
+
 
 @app.get("/")
 async def welcome():
