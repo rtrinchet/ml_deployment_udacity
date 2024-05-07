@@ -6,10 +6,10 @@ import pickle
 from solution.train_model import process_data
 from mangum import Mangum
 
-with open("model.pkl", "rb") as input_file:
+with open("solution/model.pkl", "rb") as input_file:
     model = pickle.load(input_file)
 
-with open("encoder.pkl", "rb") as f:
+with open("solution/encoder.pkl", "rb") as f:
     encoder = pickle.load(f)
 
 app = FastAPI()
