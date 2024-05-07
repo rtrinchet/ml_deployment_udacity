@@ -1,7 +1,7 @@
 # Example unit tests
 import pytest
 from fastapi.testclient import TestClient
-from main import app
+from solution.main import app
 
 
 @pytest.fixture
