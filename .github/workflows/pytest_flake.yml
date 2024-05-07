@@ -32,6 +32,6 @@ jobs:
 
     - name: Run pytest
       run: |
-        pytest -s solution/test_ml_model.py test_api.py
+        pytest -s solution/test_ml_model.py solution/test_api.py
 
 
